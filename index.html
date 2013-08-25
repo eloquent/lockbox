@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Lockbox - Simple, strong encryption.</title>
+
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+        <link href="http://eloquent-software.com/css/eloquent.css" rel="stylesheet">
+        <link href="/css/site.css" rel="stylesheet">
+
+        <link rel="shortcut icon" href="http://eloquent-software.com/img/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="http://eloquent-software.com/img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="57x57" href="http://eloquent-software.com/img/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="http://eloquent-software.com/img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="http://eloquent-software.com/img/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="http://eloquent-software.com/img/apple-touch-icon-144x144.png">
+    </head>
+    <body>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-41826908-1', 'eloquent-software.com');
+            ga('send', 'pageview');
+        </script>
+
+        <div class="container container-narrow">
+            <div class="jumbotron">
+                <h1>Lockbox <small><nobr>by <a href="http://lqnt.co/">Eloquent</a></nobr></small></h1>
+
+                <p>
+                    <em>Lockbox</em> is the simplest possible way to implement strong, two-way, public-key encryption for use in applications.
+                    <em>Lockbox</em> uses a combination of well-established technologies to ensure the safety of data.
+                </p>
+
+                <p><strong>Lockbox</strong> = <em>Simple, strong encryption.</em></p>
+            </div>
+
+            <h2 id="lockbox-libraries"><em>Lockbox</em> libraries</h2>
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ul class="nav nav-pills">
+                            <li><a href="https://github.com/eloquent/lockbox-nodejs">Node.js</a></li>
+                            <li><a href="https://github.com/eloquent/lockbox-php">PHP</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            <h2 id="why-use-lockbox">Why use <em>Lockbox</em>?</h2>
+                <h3 id="avoiding-poor-choices">Avoiding poor choices</h3>
+                    <p>
+                        Encryption is a complicated subject.
+                        The are a myriad of options to choose from when deciding on an encryption scheme: algorithms, key sizes, modes, padding schemes, and encodings.
+                        Knowing what choices to make can be daunting even with a decent knowledge of cryptography.
+                    </p>
+                    <p>
+                        <em>Lockbox</em> removes the burden of overwhelming choice.
+                        There is no configuration; <em>Lockbox</em> simply works in the best possible way straight out of the box.
+                    </p>
+                <h3 id="cross-platform-compatibility">Cross-platform compatibility</h3>
+                    <p>
+                        Anyone who's ever attempted to encrypt data in one language, and decrypt it in another, can explain how much of an arduous task it can be.
+                        Encryption must work <strong>exactly</strong>, byte-for-byte, the same across platforms in order to be compatible.
+                    </p>
+                    <p>
+                        Libraries for <em>Lockbox</em> are available in multiple languages.
+                        Any combination of these libraries will work together flawlessly without any extra effort on the developer's part.
+                    </p>
+                <h3 id="excellent-portability">Excellent portability</h3>
+                    <p>
+                        Storage and/or transmission of encrypted data can pose problems of its own.
+                        Usually, the ciphertext produced by an encryption algorithm contains data that cannot be represented as a 'normal' string of text.
+                        This raw data is easily misinterpreted, and hence corrupted, by databases and other systems that may have to handle the data.
+                        The most common solution to this issue is to encode the data using something like <a href="http://tools.ietf.org/html/rfc4648">Base64</a> encoding; but even Base64 causes issues for URIs and file names.
+                    </p>
+                    <p>
+                        <em>Lockbox</em> uses a <a href="http://tools.ietf.org/html/rfc4648#section-5">variant of Base64</a> designed specifically to address these issues.
+                        It's almost impossible to accidentally corrupt the data produced by <em>Lockbox</em>.
+                    </p>
+                <h3 id="public-key-flexibility">Public-key flexibility</h3>
+                    <p>
+                        <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">Public-key cryptography</a> allows for more flexible usage than <a href="http://en.wikipedia.org/wiki/Symmetric-key_algorithm">symmetric cryptography</a>.
+                        Encryption requires only the <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">public key</a>, but decryption requires access to the <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">private key</a>.
+                        This means that the public key can be published without compromising security.
+                        The practical upshot is that data can be securely shared without an initial secured exchange of secret keys.
+                    </p>
+                    <p>
+                        <em>Lockbox</em> implements a public-key encryption system, allowing the developer to harness these features if they are required.
+                    </p>
+            <h2 id="design-goals-for-lockbox">Design goals for <em>Lockbox</em></h2>
+                <ul>
+                    <li>To utilize extremely strong encryption.</li>
+                    <li>To use existing, well-vetted, open standards where possible.</li>
+                    <li>To be completely transparent (data out is, byte-for-byte, exactly equal to data in).</li>
+                    <li>To be able to detect decryption failures.</li>
+                    <li>To be able to encrypt any string, including empty strings.</li>
+                    <li>To produce ciphertext that is as portable as possible (able to be transmitted across many protocols without need for additional encoding).</li>
+                    <li>To make integration as simple as possible.</li>
+                    <li>To eliminate the need for configuration.</li>
+                    <li>To be simple to implement across many languages and platforms.</li>
+                </ul>
+            <h2 id="how-does-lockbox-actually-work">How does <em>Lockbox</em> actually work?</h2>
+                <p>
+                    <em>Lockbox</em> uses <a href="http://www.openssl.org/">OpenSSL</a> with <a href="http://en.wikipedia.org/wiki/Privacy_Enhanced_Mail">PEM</a> formatted keys, and is similar in operation to the PHP functions <a href="http://php.net/openssl_seal">openssl_seal()</a> and <a href="http://php.net/openssl_open">openssl_open()</a>.
+                </p>
+                <p>
+                    Where <em>Lockbox</em> differs, is in its use of <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES-256</a> instead of <a href="http://en.wikipedia.org/wiki/RC4">RC4</a> as the secondary encryption algorithm.
+                    In addition, <em>Lockbox</em> includes data verification steps that allow unsuccessful decryption to be detected.
+                </p>
+                <h3 id="encryption-process">Encryption process</h3>
+                    <ol>
+                        <li>Some data and a <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">public key</a> are passed to <em>Lockbox</em>.</li>
+                        <li>A <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> hash of the data and the data itself are concatenated together.</li>
+                        <li>This hash and data concatenation is padded using <a href="http://tools.ietf.org/html/rfc2315">PKCS #7</a> padding.</li>
+                        <li>A random 256-bit key and 128-bit <a href="http://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a> (IV) are generated (by default, <em>Lockbox</em> uses /dev/urandom as the random source).</li>
+                        <li>The padded hash and data are encrypted using the generated key and IV and <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES-256</a> encryption in <a href="http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29">cipher block chaining</a> mode.</li>
+                        <li>The generated key and IV are concatenated together and encrypted with the public key using <a href="http://www.openssl.org/">OpenSSL</a> and <a href="http://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding">OAEP padding</a>.</li>
+                        <li>The encrypted key and IV, and the encrypted hash and data are concatenated together.</li>
+                        <li>This concatenation of encrypted data is then encoded using <a href="http://tools.ietf.org/html/rfc4648#section-5">Base64 with a URI and filename safe alphabet</a>.</li>
+                        <li>This encoded data is returned as the final ciphertext.</li>
+                    </ol>
+                <h3 id="decryption-process">Decryption process</h3>
+                    <ol>
+                        <li>Some ciphertext and a <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">private key</a> are passed to <em>Lockbox</em>.</li>
+                        <li>The ciphertext is decoded using <a href="http://tools.ietf.org/html/rfc4648#section-5">Base64 with a URI and filename safe alphabet</a>.</li>
+                        <li>The first n bits of the ciphertext are extracted, where n is the size of the private key; this extracted data is the encrypted key and <a href="IV">initialization vector</a>.</li>
+                        <li>The remaining bits of the ciphertext are extracted as the encrypted data</li>
+                        <li>The encrypted key and IV from step 3 are decrypted with the private key using <a href="http://www.openssl.org/">OpenSSL</a> and <a href="http://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding">OAEP padding</a>.</li>
+                        <li>The first 256 bits of the decrypted data are extracted as the key.</li>
+                        <li>The next 128 bits of the decrypted data are extracted as the IV.</li>
+                        <li>The encrypted data from step 4 is decrypted using the recovered key and IV from steps 6 and 7 and <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES-256</a> encryption in <a href="http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29">cipher block chaining</a> mode.</li>
+                        <li>Padding is removed from the decrypted data in accordance with the <a href="http://tools.ietf.org/html/rfc2315">PKCS #7</a> padding scheme.</li>
+                        <li>The first 160 bits of the unpadded data are extracted as the verification hash.</li>
+                        <li>The remaining bits of the unpadded data are extracted as the final data.</li>
+                        <li>If the verification hash matches the <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> hash of the final data, the final data is returned, otherwise decryption has failed.</li>
+                    </ol>
+            <h2 id="test-vectors">Test vectors</h2>
+                <p>
+                    All test vectors use the following key:
+                </p>
+                <pre>-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAy8jsljdxzsgvboCytmlH3Q03v30fPTNfMqmz2Yn0GdtkqQH0
+1+H9y5bWWCQyeGOATvIPrELGeB9nRlQeaTb5VjCl1V9PYeM6Q30PK6411fJexjYA
+/UbRG/9I/K+A9UBfJvUsjGVUMxZR8n8jmmSy8G2eqXBbP6dEZFnO0V274TRTB3SL
+KD2tfYBYwMtXqT+rSbH1OyoS29A03FaUgkRk1er2i3ldyNIG8vMGv7Iagup69yBr
+t8xo61IFj76dkocbozp1Y4SGzyjkR/ukRSLe+0ejS4eMyziaH7J52XX1rDFreinZ
+ZDoE571ameu0biuM6aT8P1pk85VIqHLlqRm/vQIDAQABAoIBAAlqWyQFo8h+D1L3
+t0oeSye3eJ/sVAkr2nYoyRp/+TtIm7oDUSC4XFWPvo+L/Jj7X+5F2NuIqkraiJcD
+Q/RwicylqsPVB4HqUcLUgGLwRaSA8kgOLrWFFBxLC0BBi5/JPZw7L7e85ssFePvP
+TAHSLUJWjkId4tlqDQrl61xZDFk3UHawcovZeUp4RAqULeLDXAQTQJYXE8erPjhQ
+Y0uSWORe1S1ICaI2aqbjmIHFUzPlz45KlakzLwn4tobeiKeNaHrPw++JMXNVSlPk
+hGxPliXbZauaoDHa/p6w3hDvr2ZjOLU7QDHgdiWZ4EUW5AQRf7aiKtE2yNPTGJQb
+yv9QHzECgYEA/UQluesABp+UJvvDzbEmDkipgCbEu5fHyGb8C0FPZET1ys2wu0DI
+IaYR4hiYetrv5inHzXnMSkuQSMzPa+SyBXgiGnB9J2+sBX0H9byq3QuMriTSDQPA
+ptxZlYAXTEXRUsNYG3/VCiC75VjbufHI7QmsOStTij6w15gchTrBt+cCgYEAzfwL
+amiGmgVblJ1xr+8zwZMv99c22j8K+Cm4PoUhQ6I6XcgqHyDj8mD65UxQU3aE8R2m
+vbX7XW1jrpflbVwoRoJS9z8F77rm6t38yS3WJqz6kyoQ0u4W2m8D8g/WWROjeGFD
+ljrpiwErkmzCGrNhSk4O9YTXrNUGkD5MTpVPBrsCgYBlmdgUnIy3G3+AoBFty/o7
+UrUE3wifRQV1hLLqBPpHfE6qXBfhFtzyer/D1yAccQY6bFpmOM1WpLeuLNOtMeKk
+xQvRVX0vu+HjlcQCtfxJjt+R4N2PMQkxJ0ac7fTquTt/GzSWW5LobDdUi3AiSTfU
+t8Oqb5Ik7H9fDfurCuY50wKBgQDDC/wfSVTTeWlLo35oct+WV/JfA7ocFQAlFxQw
+l011RqNv9D72dOWDuJM7FvUk4yBlVId0MmMQB6oRRCHqWQ6GHZfEKThM1bUdBxD7
+ytxyiO9I9NczdGHNervItXhppq/vKGKgWa6VgokowLVYJS1l994wXBcBwEHTyjnl
+W3qWSwKBgQDZo0uMMWevRBriPT6OCdEYwnOZOMvh6LdXG2wyC2wYMY+8XOMzDrZP
+zD3i4wQYCfJg7pyhVtctBz2NQ8J878xm2EXzUpGaIxjLIXb1UVgw4XXcM7LkjFaa
+J1iMrMTLGSX89+gW3Bg8hxS7klxZf7ZlVSzLpA2jkK3k5vdgWGVhtA==
+-----END RSA PRIVATE KEY-----</pre>
+                <p>
+                    All test vector values below are expressed as <a href="http://en.wikipedia.org/wiki/ASCII">US-ASCII</a> encoded strings.
+                    Newlines are added only for readability, and do not make up part of the value.
+                </p>
+                <p>
+                    Note that the <a href="http://www.openssl.org/">OpenSSL</a> encrypted portion of the ciphertext will be different each time because it utilizes a random seed.
+                    Therefore only the ciphertext after the 342<sup>nd</sup> byte is guaranteed to be the same for all ciphertext.
+                </p>
+                <pre>Data:               &lt;empty&gt;
+Generated key:      12345678901234567890123456789012
+Generated IV:       1234567890123456
+Example ciphertext: FzFcxXm57XqDzsZm4vVUaspsK1-Hcw7fN
+                    jAqadl-WhwR_Kfwv4gM7v7OnDGWfpDOTl
+                    I_nlQvvwP3TP98tOhyrsJkpDDMZ0WSQVP
+                    cl23xTk6xbLvwl2qRVdZa8isKCXXcuKt5
+                    XIv1Mexp2Dzyn8w8TNYOdK0EiNj1v2PUk
+                    7X2QUPvK0poT_3fUlN13aK28KBqg-CGw0
+                    xzsGSG4k7CN8FEfGqbSBfuNxumH0eJyzZ
+                    1s4cYbcn3OWdlQln7asp21WZHj7SEMWIf
+                    dsrtoWL85uEAnLxYG_CXD1nteVXffAwFv
+                    ByMT1UmNQ0AWjm8KJiH8hLXPr09rbo5Vz
+                    s6c5lSrjMmM9itNTFRhW3KMfhqusPDqWJ
+                    7K37AvEHDaLULPKBNj24c
+
+Data:               1234
+Generated key:      12345678901234567890123456789012
+Generated IV:       1234567890123456
+Example ciphertext: wdPXCy5amuY7U8tGD0M-nnK5LGc4DC1h
+                    VwvNWVLCyqOMHgDF3fpsY-8MQkMUuI0T
+                    eNoutU-TpuGsm6D-KIXeAaWIYuUAaNZ-
+                    V_5WwmRFT5BEyhQwZ3PFybrs39o4sAlO
+                    d5IVvLNMMgwRD-FmQc8KU10d3KDd71wW
+                    r50y7R33xTnyJplx9uqcOrB6ooQLjFcF
+                    bFU87YPnhkxZK5JryTxAlaDJjfFs-3XM
+                    zgoJ35rpBgDVywPXbye1C8u5gw81awid
+                    Xgei_a27MZog1lUvETzMXqqZ4VlhckDV
+                    m71f4TLMKHTz-CmYinvzj7G_pYmvtHeh
+                    uxDzjdrT4lbetTuESm-YHKtq9JEj6E2S
+                    ER4TURlVKf14sPeDgRUo88-zvM7BWpMv
+
+Data:               1234567890123456
+Generated key:      12345678901234567890123456789012
+Generated IV:       1234567890123456
+Example ciphertext: umvbDKEQtKldCN15bgyGyLm5K5LEDNGJ
+                    kXbyYask_sgSi9lkGa5ByDZKVs1SMgp0
+                    mif4GDfyg5xVadsPzoH9-jdSoTB7pNxz
+                    ns8CNP8KIWEcU6TATwjbW9bP5FBQKxRO
+                    OTHdLLJ7ADqvuT0QxH1Yy1xzlVGXUXxk
+                    coMBey_CxiboqjLm_cEl1dA0HyidgxTn
+                    rArsM7porZPj__gbWIEv58L0S2xv11YL
+                    0IQMGkQiupJhHKiyAIH4KchZ8whV_aAZ
+                    193U7toEJ7Ojd7uu6hzMiVDCIRPDa5Ek
+                    zyBFoNsr2hcTFcU4oxBkRbUottvH9Dji
+                    SxIPU4O8vomXpUqWzneJ4CBlVmSYgUJa
+                    4zsJUnll4lufFRTYTYjuCgQhunOAIVS2
+                    DxuQH8bSZZrHKNIghc0D3Q</pre>
+
+            <div id="footer">
+                <p class="muted pull-right">Copyright &copy; 2013 <a href="http://ezzatron.com/">Erin Millard</a></p>
+            </div>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="http://eloquent-software.com/js/eloquent.js"></script>
+    </body>
+</html>
