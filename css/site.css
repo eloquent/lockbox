@@ -5,8 +5,10 @@ body {
 }
 
 /* container */
-.container {
-    max-width: 730px;
+@media (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
 }
 
 /* jumbotron */
