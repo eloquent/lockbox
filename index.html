@@ -144,11 +144,12 @@
                         <li>The remaining bits of the unpadded data are extracted as the final data.</li>
                         <li>If the verification hash matches the <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> hash of the final data, the final data is returned, otherwise decryption has failed.</li>
                     </ol>
-            <h2 id="test-vectors">Test vectors</h2>
+            <h2 id="reference-keys">Reference keys</h2>
                 <p>
-                    All test vectors use the following key:
+                    All test vectors use the following keys:
                 </p>
-                <pre>-----BEGIN RSA PRIVATE KEY-----
+                <h3 id="2048-bit-key">2048-bit key</h3>
+                    <pre>-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAy8jsljdxzsgvboCytmlH3Q03v30fPTNfMqmz2Yn0GdtkqQH0
 1+H9y5bWWCQyeGOATvIPrELGeB9nRlQeaTb5VjCl1V9PYeM6Q30PK6411fJexjYA
 /UbRG/9I/K+A9UBfJvUsjGVUMxZR8n8jmmSy8G2eqXBbP6dEZFnO0V274TRTB3SL
@@ -175,15 +176,71 @@ W3qWSwKBgQDZo0uMMWevRBriPT6OCdEYwnOZOMvh6LdXG2wyC2wYMY+8XOMzDrZP
 zD3i4wQYCfJg7pyhVtctBz2NQ8J878xm2EXzUpGaIxjLIXb1UVgw4XXcM7LkjFaa
 J1iMrMTLGSX89+gW3Bg8hxS7klxZf7ZlVSzLpA2jkK3k5vdgWGVhtA==
 -----END RSA PRIVATE KEY-----</pre>
+                <h3 id="4096-bit-key">4096-bit key</h3>
+                    <pre>-----BEGIN RSA PRIVATE KEY-----
+MIIJKgIBAAKCAgEA9DS1xodHyQg8F0Z3QKaHSdK0dq85y8fnfnNSvv9Xd55IFJNI
+HO28kKWClOLTwY4Cg0yCmIpXvzwSVCdMS2DzT7GmBXw003/nrVAXpGLTI6ul9Brm
+F9VhPkeQq8EQjwE3VFDlFxWhoL+0QxBfpX/pw+GJsW9ZOUNRGx3Rt7O/4vxpOvYW
+U4GJWiJ/9wHywPOjuAFzDQmMWE9mSvkcHuWjngF/ZiPPQfPKMJFk+/IMF8h1VKjj
+Y09qoBNPIygFCWjx/aAY09lhQUcvznSIQ8V3hhaqA9gDN2o44aebYPTHGN7WQVQl
+WZ9ZQoCLaqPwlG9M1G0IyoKTx32w73R5APHRDxMm4tQ5FERdFMq1K2IC7jCYXPid
+W/ZU3W3VhVLQ5rk8glTb1eJzc76gdW3PfJ0MAn1JT1ki6aCivs4oxUlQ+Qj1oHMB
+9eAqSghYhaNUTtZybYvh+Iuot9aHHvG4i+ko85iAhi//Ic0hUrgrZl30hPLSTroc
+cO2RDPjlP7B/bVdo9ZkhmCi1CMouuzDM0iKOCu2ivWuL7EKmqpKuJG/T4R5bVq8b
+LKdwMVRomaWXnyL9gXJy+QjnI9CKfTftG4tTUXqIZq5FVRBigxnBt2aDYtDbSZM7
+bNX35kxUc7rto795YZPTaCZeDSU6DWCKa0ixzha0pzE8FCSNK9FCCs89ae0CAwEA
+AQKCAgEArr7JFDbZd1EdLsqNqwV+6aSM3iClCt0RGbsMCwBMZpwsmAyMHadAt4C3
+4DIvtOEZizrEeMMF5yHlO7KjNY06jlxgoKwwYOe1sJ8PS+Irk+rP5c0ZuRRHcXlk
+XILahnooTX1VcR9ZeN208AhXaOYPMMvC6+Txw7gX4X+FAh7twE8+PaK6dybKUmU9
+jFMokknFbXYcDcg3VTn7yMpZBQLuAbKwpzYYqOj6Vaa0zFR3ss0OqHXxwK6jbchj
+aJTKheFCyGo3WeDDZyK5YtKgb15uGNU+82EvbAfmjBKTbN27WmCakETWNTuBc8Tn
+/ncxQAYkxB0BnWeyt52Jbs+5hqODJBB/E+zylowNIPhDLXnAzzN5pGcKaLE0HhMB
+Kl938+NhQ4UyHJnlRc3yoIrVE8458VN17+3iRpGIMCbwCezScorMF9ssEdcFemcz
+9UIE7OUc609VvBdd4RmTI7CowWUytzht5AE0a++cHGeQlm72ZCIXW/AG0NAw3wJS
+iuQJhvbiiQIx+uAXZxIj1zd8uotM4xBDxG6EZkJvUNUzXQldpY4yZ8YMJjntW6Th
+zIHb9hbK5UoV6Gh3f+3apBijIueUXA+/3AjwXOAqcA6pnmEiltg1Ao0X9BV7jyXq
+bXuczMfku9Z7tyG62xSs9yN0KniPkhwL7U3DdKXZAPB3Ey7NggECggEBAP37uKY2
+0BrAG58eHKp/n2AsE09hYpBbVewSaTDVFq3YHoWbnLQXDDjMrqAj7vdObTTasWmH
+fgHtciudoj/tTSmjX6nUddKHUSNrt5sFGzJHPCrWI7gWr4HXy4CJusDEkczM2iJH
+z3EOGYqOogR9cLj4LSw6xGv3LqSuwNxOxcNciJWrmNkBbYSll1N/nhi1OJ9krLQk
+5C1C44mGOkEfyM7uzEWZtAuojNdvZEpBVe2i+zPMKNC6ZdsRaJWEmcVRIvmo2ZRk
+KYpVj3NJWb+gXtuKj2DeNDmLUkEuNSkx7hvtQa1x/xnUVUYWAUnGUpNIUpvxDgyb
+xo4Lob7MKM4ydvkCggEBAPYlHS/7bzrMra1boirQYdTURPDcgrlnaOXyo2wf3d67
+brEsph5d+mouW9K0jpcUUP7ZrhLLQnYDdiCTx26NKZKkbXckWHhqipliCZE01I7k
+GBH+7f8v5qnSBAb+gWzu7SIOLZZF95bP/dpN6GycRRdgYwVDZ7rNDizQJURmknBy
+yp5YlDfunFrf/phHmi9dEQhrMhGUKVLZJccD1IoXq8Q+kOqp1/P51XmUwd7UA+5W
+ykHSeIlnTYUuN7pjSm1nZDJJm41HPcZ4HpKtksjbjD2R6cloqBLcs03TmaJcBiSL
+JLrXxaVJ43U89mz/ln/RAw7+lyssNk3ZoW2aHCRTQ5UCggEBAKAa62aUDRGf4omm
+sMlmFDDK+A1FRZ3chciAPqFS4q4KHAt7cggwszqnBLncjQqG/N6hsc7lY7CRXzRR
+dXM5AzhpTafAT9m8BZD/mUl2qZNDRpF2ViP44QBH6XgI2pokEAj7ZdLQU9tf2Qf4
+K/gKn2FqyQclsKaitluH8fmvConBrjQzbPH3LXO98yvmueG3c48/JoOU8eX6UXdj
+Dxv4jlysOkbxwobK5KX2CVGp6CIaaKJZY61Yo1a6naQLZ+fz4slhAG/DyE/06a3y
+IkpjLQjWStX0nRVdVyfRmh9y4zflk05kGzzMFklNG9jG1U0U/UZiacnW9Q6cFIUz
+K9H4C/kCggEAFPrg3AAgYPClNQuEbQXJ8OwO3EDPW6I2zLK7vzGQJbXwH2Xg2uHD
+wF0nMnR1Wuc+aBqBvdRZW9m7rdcqvn+FtZwSQH92kvzxx1UV36yTGYLTkmUaQBAD
+JyJheX8j5PcQe0CeHhrkmZQs3PibAPbo5K8wgXhXVRK5TJSJOKVNggwmvQxrxcCu
+zwgcmToxKCxUkVUhtWHdi9Q6ZhYrfYG7AEUc8QN9Bqyax3wocie8FgqLvsSDxaJq
+dxmTYm2oIF8ZqTeg7I/P8iS25mWpBzm/YFgZhzNGcCUjm1SX2cDiPScnAE336Li9
+jHafwnaei1JzYknM9L8V+di866yhDW+TaQKCAQEAkSPtF/KK9BpelJYcstOinywM
+UC2qmmJbiuQzD73F+CPRNegwHd1QQff2JLNHhRosrHz7IEuBYSK15VZX3M+8tEob
+VfnoUrWHYbjdUfmD6yNlikdBcOadGa3Z4F6JO2HrZh5zlLzkBKcRtpOHSyGZeElJ
+S0Bd82jVzFtHlrFkh3CHEliZEZQlGxkVrqrCl+6s5nWT3IqFiyoDyNWL+mL/qnVd
+JrjZyEjYsaruTwz9Q1hh1DAkI7ezCkFcR0kvW69zpNaSybpK+1Uba0HZXkL+aqXv
+ETS8g8nIPIMLc654F4XrUhm1syW4oO63tvTmHdPBKM/e1H/bMoYd6r7fUQ2WRg==
+-----END RSA PRIVATE KEY-----
+</pre>
+            <h2 id="test-vectors">Test vectors</h2>
                 <p>
-                    All test vector values below are expressed as <a href="http://en.wikipedia.org/wiki/ASCII">US-ASCII</a> encoded strings.
+                    All test vector values below are expressed as <a href="http://en.wikipedia.org/wiki/ASCII">US-ASCII</a> encoded strings, except the key names which are references to the relevant test key.
                     Newlines are added only for readability, and do not make up part of the value.
                 </p>
                 <p>
                     Note that the <a href="http://en.wikipedia.org/wiki/RSA_(algorithm)">RSA</a> encrypted portion of the ciphertext will be different each time because it utilizes a random seed.
-                    Therefore only the ciphertext after the 342<sup>nd</sup> byte is guaranteed to be the same for all ciphertext.
+                    Therefore, for the 2048-bit key, only the ciphertext after the 342<sup>nd</sup> byte is guaranteed to be the same for all ciphertext.
+                    For the 4096-bit key, only the ciphertext after the 684<sup>th</sup> byte is guaranteed to be the same for all ciphertext.
                 </p>
-                <pre>Data:               &lt;empty&gt;
+                <pre>Key:                &lt;2048-bit key&gt;
+Data:               &lt;empty&gt;
 Generated key:      12345678901234567890123456789012
 Generated IV:       1234567890123456
 Example ciphertext: FzFcxXm57XqDzsZm4vVUaspsK1-Hcw7fN
@@ -199,6 +256,7 @@ Example ciphertext: FzFcxXm57XqDzsZm4vVUaspsK1-Hcw7fN
                     s6c5lSrjMmM9itNTFRhW3KMfhqusPDqWJ
                     7K37AvEHDaLULPKBNj24c
 
+Key:                &lt;2048-bit key&gt;
 Data:               1234
 Generated key:      12345678901234567890123456789012
 Generated IV:       1234567890123456
@@ -215,6 +273,7 @@ Example ciphertext: wdPXCy5amuY7U8tGD0M-nnK5LGc4DC1h
                     uxDzjdrT4lbetTuESm-YHKtq9JEj6E2S
                     ER4TURlVKf14sPeDgRUo88-zvM7BWpMv
 
+Key:                &lt;2048-bit key&gt;
 Data:               1234567890123456
 Generated key:      12345678901234567890123456789012
 Generated IV:       1234567890123456
@@ -230,7 +289,36 @@ Example ciphertext: umvbDKEQtKldCN15bgyGyLm5K5LEDNGJ
                     zyBFoNsr2hcTFcU4oxBkRbUottvH9Dji
                     SxIPU4O8vomXpUqWzneJ4CBlVmSYgUJa
                     4zsJUnll4lufFRTYTYjuCgQhunOAIVS2
-                    DxuQH8bSZZrHKNIghc0D3Q</pre>
+                    DxuQH8bSZZrHKNIghc0D3Q
+
+Key:                &lt;4096-bit key&gt;
+Data:               1234567890123456
+Generated key:      12345678901234567890123456789012
+Generated IV:       1234567890123456
+Example ciphertext: XncYhc3C20kG5Zb8VPB0OGBik6N6a6JY
+                    333Hz6VN3lQ21xMoc16XW0873AzuyvDI
+                    YAjNzN0pAQo0CosedUptYLLwRtGrsfUr
+                    XIZxteHNZ7JiEXGZ8W_6bz9jlbnpfNdH
+                    GxaR-aePTZWSbyPyPdQysGJlqclXJb_K
+                    dKfqGHLYOf0LO93kvljQ4ccux18vm8PQ
+                    GIeAH-L5qMfzfOHzcCXbVU746pZf7mNR
+                    uIEgfp0AM-JEKItYTIZxr8kP7-WlVDf0
+                    7cjQkZuUEQ7d9FQLKOWviuQ-PQd2enwI
+                    MYo3btEiu2XHmUcZEcI2esz_vwBGxHNM
+                    HGrshgpuP_EvPPR_1EogS2EGHs0l_owU
+                    hHx4V8LvgMBnO3O2nO9p2WA7ZKH1zMZU
+                    gGaxMAlZrMweaGvEcke2nwnfLUBVytYd
+                    QNOBV7TmJ3XMXwgpavZ2eKvVXUpdKfcm
+                    fsGDxjkJRN8BqDTrSZZmSKZe9VZkGSNS
+                    99jF9BEa6dmy7RTLy3xSaWdPwbElX3pA
+                    pgQR5BKHz6DP5p86gaQITelAMMYaZQK3
+                    tNvW6ncRfJGlD3ax_TezCOtrEmlzVCRe
+                    OsbK51H_xfST_0PO-hXG35NIGC1vDV8r
+                    iDMr47HbRIFwm9NxT1VR0hDF0LbIIbkS
+                    YucMkD_Zv9JjoL4FX0rM0T0fvDJBeJXw
+                    Zt1ifDOvWxogZVZkmIFCWuM7CVJ5ZeJb
+                    nxUU2E2I7goEIbpzgCFUtg8bkB_G0mWa
+                    xyjSIIXNA90</pre>
 
             <div id="footer">
                 <p class="muted pull-right">Copyright &copy; 2013 <a href="http://ezzatron.com/">Erin Millard</a></p>
