@@ -34,7 +34,7 @@
                 <h1>Lockbox <small><nobr>by <a href="http://lqnt.co/">Eloquent</a></nobr></small></h1>
 
                 <p>
-                    <em>Lockbox</em> is the simplest possible way to implement strong, two-way, public-key encryption for use in applications.
+                    <em>Lockbox</em> is the simplest possible way to implement strong two-way encryption for use in applications.
                     <em>Lockbox</em> uses a combination of well-established technologies to ensure the safety of data.
                 </p>
 
@@ -104,47 +104,53 @@
                 <ul>
                     <li>To utilize extremely strong encryption.</li>
                     <li>To use existing, well-vetted, open standards where possible.</li>
-                    <li>To be completely transparent (data out is, byte-for-byte, exactly equal to data in).</li>
+                    <li>
+                        To be completely transparent.
+                        That is, encryption and subsequent decryption produces the exact same data as the original, byte-for-byte.
+                    </li>
                     <li>To be able to detect decryption failures.</li>
-                    <li>To be able to encrypt any string, including empty strings.</li>
-                    <li>To produce ciphertext that is as portable as possible (able to be transmitted across many protocols without need for additional encoding).</li>
-                    <li>To make integration as simple as possible.</li>
+                    <li>To be able to encrypt data of any length, including empty strings.</li>
+                    <li>
+                        To produce ciphertext that is as portable as possible
+                        (able to be transmitted across many protocols without need for additional encoding).
+                    </li>
+                    <li>To make integration as simple as possible across many languages and platforms.</li>
                     <li>To eliminate the need for configuration.</li>
-                    <li>To be simple to implement across many languages and platforms.</li>
                 </ul>
             <h2 id="how-does-lockbox-actually-work">How does <em>Lockbox</em> actually work?</h2>
-                <p>
-                    <em>Lockbox</em> uses <a href="http://www.openssl.org/">OpenSSL</a> with <a href="http://en.wikipedia.org/wiki/Privacy_Enhanced_Mail">PEM</a> formatted keys, and is similar in operation to the PHP functions <a href="http://php.net/openssl_seal">openssl_seal()</a> and <a href="http://php.net/openssl_open">openssl_open()</a>.
-                </p>
-                <p>
-                    Where <em>Lockbox</em> differs, is in its use of <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES-256</a> instead of <a href="http://en.wikipedia.org/wiki/RC4">RC4</a> as the secondary encryption algorithm.
-                    In addition, <em>Lockbox</em> includes data verification steps that allow unsuccessful decryption to be detected.
-                </p>
-                <h3 id="encryption-process">Encryption process</h3>
-                    <ol>
-                        <li>Some data and an <a href="http://en.wikipedia.org/wiki/RSA_(algorithm)">RSA</a> <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">public key</a> are passed to <em>Lockbox</em>.</li>
-                        <li>A random 256-bit key and 128-bit <a href="http://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a> (IV) are generated from a <a href="http://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator">cryptographically secure source</a>.</li>
-                        <li>The generated key and IV are concatenated together and encrypted with the public key using <a href="http://en.wikipedia.org/wiki/RSA_(algorithm)">RSA</a> encryption and <a href="http://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding">OAEP padding</a> (with <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> as the hash function and MGF1 as the mask generation function) in <a href="http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_.28ECB.29">electronic codebook</a> mode.</li>
-                        <li>A <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> hash of the supplied data is concatenated to the end of the data.</li>
-                        <li>The data and hash are encrypted using the generated key and IV and <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a> encryption and <a href="http://tools.ietf.org/html/rfc2315">PKCS #7</a> padding (also known as PKCS #5 padding) in <a href="http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29">cipher block chaining</a> mode.</li>
-                        <li>The encrypted key and IV, and the encrypted data and hash are concatenated together.</li>
-                        <li>This concatenation of encrypted data is then encoded using <a href="http://tools.ietf.org/html/rfc4648#section-5">Base64 with a URI and filename safe alphabet</a>.</li>
-                        <li>This encoded data is returned as the final ciphertext.</li>
-                    </ol>
-                <h3 id="decryption-process">Decryption process</h3>
-                    <ol>
-                        <li>Some ciphertext and an <a href="http://en.wikipedia.org/wiki/RSA_(algorithm)">RSA</a> <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">private key</a> are passed to <em>Lockbox</em>.</li>
-                        <li>The ciphertext is decoded using <a href="http://tools.ietf.org/html/rfc4648#section-5">Base64 with a URI and filename safe alphabet</a>.</li>
-                        <li>The first n bits of the ciphertext are extracted, where n is the size of the private key; this extracted data is the encrypted key and <a href="IV">initialization vector</a>.</li>
-                        <li>The remaining bits of the ciphertext are extracted as the encrypted data.</li>
-                        <li>The encrypted key and IV from step 3 are decrypted with the private key using <a href="http://en.wikipedia.org/wiki/RSA_(algorithm)">RSA</a> encryption and <a href="http://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding">OAEP padding</a> (with <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> as the hash function and MGF1 as the mask generation function) in <a href="http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_.28ECB.29">electronic codebook</a> mode.</li>
-                        <li>The first 256 bits of the decrypted data are extracted as the key.</li>
-                        <li>The next 128 bits of the decrypted data are extracted as the IV.</li>
-                        <li>The encrypted data from step 4 is decrypted using the recovered key and IV from steps 6 and 7, and <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a> encryption with <a href="http://tools.ietf.org/html/rfc2315">PKCS #7</a> padding (also known as PKCS #5 padding) in <a href="http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29">cipher block chaining</a> mode.</li>
-                        <li>The last 160 bits of the unpadded data are the verification hash.</li>
-                        <li>The unpadded data before this point is considered the final data.</li>
-                        <li>If the verification hash matches the <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> hash of the final data, the final data is returned, otherwise decryption has failed.</li>
-                    </ol>
+                <h3 id="lockbox-with-keys"><em>Lockbox</em> with keys</h3>
+                    <p>
+                        <em>Lockbox</em> uses <a href="http://www.openssl.org/">OpenSSL</a> with <a href="http://en.wikipedia.org/wiki/Privacy_Enhanced_Mail">PEM</a> formatted keys, and is similar in operation to the PHP functions <a href="http://php.net/openssl_seal">openssl_seal()</a> and <a href="http://php.net/openssl_open">openssl_open()</a>.
+                    </p>
+                    <p>
+                        Where <em>Lockbox</em> differs, is in its use of <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES-256</a> instead of <a href="http://en.wikipedia.org/wiki/RC4">RC4</a> as the secondary encryption algorithm.
+                        In addition, <em>Lockbox</em> includes data verification steps that allow unsuccessful decryption to be detected.
+                    </p>
+                    <h4 id="encryption-process">Encryption process</h4>
+                        <ol>
+                            <li>Some data and an <a href="http://en.wikipedia.org/wiki/RSA_(algorithm)">RSA</a> <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">public key</a> are passed to <em>Lockbox</em>.</li>
+                            <li>A random 256-bit key and 128-bit <a href="http://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a> (IV) are generated from a <a href="http://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator">cryptographically secure source</a>.</li>
+                            <li>The generated key and IV are concatenated together and encrypted with the public key using <a href="http://en.wikipedia.org/wiki/RSA_(algorithm)">RSA</a> encryption and <a href="http://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding">OAEP padding</a> (with <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> as the hash function and MGF1 as the mask generation function) in <a href="http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_.28ECB.29">electronic codebook</a> mode.</li>
+                            <li>A <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> hash of the supplied data is concatenated to the end of the data.</li>
+                            <li>The data and hash are encrypted using the generated key and IV and <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a> encryption and <a href="http://tools.ietf.org/html/rfc2315">PKCS #7</a> padding (also known as PKCS #5 padding) in <a href="http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29">cipher block chaining</a> mode.</li>
+                            <li>The encrypted key and IV, and the encrypted data and hash are concatenated together.</li>
+                            <li>This concatenation of encrypted data is then encoded using <a href="http://tools.ietf.org/html/rfc4648#section-5">Base64 with a URI and filename safe alphabet</a>.</li>
+                            <li>This encoded data is returned as the final ciphertext.</li>
+                        </ol>
+                    <h4 id="decryption-process">Decryption process</h4>
+                        <ol>
+                            <li>Some ciphertext and an <a href="http://en.wikipedia.org/wiki/RSA_(algorithm)">RSA</a> <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">private key</a> are passed to <em>Lockbox</em>.</li>
+                            <li>The ciphertext is decoded using <a href="http://tools.ietf.org/html/rfc4648#section-5">Base64 with a URI and filename safe alphabet</a>.</li>
+                            <li>The first n bits of the ciphertext are extracted, where n is the size of the private key; this extracted data is the encrypted key and <a href="IV">initialization vector</a>.</li>
+                            <li>The remaining bits of the ciphertext are extracted as the encrypted data.</li>
+                            <li>The encrypted key and IV from step 3 are decrypted with the private key using <a href="http://en.wikipedia.org/wiki/RSA_(algorithm)">RSA</a> encryption and <a href="http://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding">OAEP padding</a> (with <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> as the hash function and MGF1 as the mask generation function) in <a href="http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_.28ECB.29">electronic codebook</a> mode.</li>
+                            <li>The first 256 bits of the decrypted data are extracted as the key.</li>
+                            <li>The next 128 bits of the decrypted data are extracted as the IV.</li>
+                            <li>The encrypted data from step 4 is decrypted using the recovered key and IV from steps 6 and 7, and <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a> encryption with <a href="http://tools.ietf.org/html/rfc2315">PKCS #7</a> padding (also known as PKCS #5 padding) in <a href="http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29">cipher block chaining</a> mode.</li>
+                            <li>The last 160 bits of the unpadded data are the verification hash.</li>
+                            <li>The unpadded data before this point is considered the final data.</li>
+                            <li>If the verification hash matches the <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> hash of the final data, the final data is returned, otherwise decryption has failed.</li>
+                        </ol>
             <h2 id="reference-keys">Reference keys</h2>
                 <p>
                     All test vectors use the following keys:
