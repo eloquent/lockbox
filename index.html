@@ -55,7 +55,12 @@
                 <p><strong>Lockbox</strong> = Simple, strong encryption.</p>
             </div>
 
-            <h2 id="lockbox-libraries"><em>Lockbox</em> libraries</h2>
+            <h2 id="lockbox-libraries">
+                <a class="anchor" href="#lockbox-libraries" tabindex="-1">
+                    <span class="icon-link icon"></span>
+                </a>
+                <em>Lockbox</em> libraries
+            </h2>
 
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -67,8 +72,18 @@
                     </div>
                 </div>
 
-            <h2 id="why-use-lockbox">Why use <em>Lockbox</em>?</h2>
-                <h3 id="avoiding-poor-choices">Avoiding poor choices</h3>
+            <h2 id="why-use-lockbox">
+                <a class="anchor" href="#why-use-lockbox" tabindex="-1">
+                    <span class="icon-link icon"></span>
+                </a>
+                Why use <em>Lockbox</em>?
+            </h2>
+                <h3 id="avoiding-poor-choices">
+                    <a class="anchor" href="#avoiding-poor-choices" tabindex="-1">
+                        <span class="icon-link icon"></span>
+                    </a>
+                    Avoiding poor choices
+                </h3>
                     <p>
                         Encryption is a complicated subject.
                         The are a myriad of options to choose from when deciding on an encryption scheme: algorithms, key sizes, modes, padding schemes, and encodings.
@@ -78,7 +93,12 @@
                         <em>Lockbox</em> removes the burden of overwhelming choice.
                         There is no configuration; <em>Lockbox</em> simply works in the best possible way straight out of the box.
                     </p>
-                <h3 id="cross-platform-compatibility">Cross-platform compatibility</h3>
+                <h3 id="cross-platform-compatibility">
+                    <a class="anchor" href="#cross-platform-compatibility" tabindex="-1">
+                        <span class="icon-link icon"></span>
+                    </a>
+                    Cross-platform compatibility
+                </h3>
                     <p>
                         Anyone who's ever attempted to encrypt data in one language, and decrypt it in another, can explain how much of an arduous task it can be.
                         Encryption must work <strong>exactly</strong>, byte-for-byte, the same across platforms in order to be compatible.
@@ -87,7 +107,12 @@
                         Libraries for <em>Lockbox</em> are available in multiple languages.
                         Any combination of these libraries will work together flawlessly without any extra effort on the developer's part.
                     </p>
-                <h3 id="excellent-portability">Excellent portability</h3>
+                <h3 id="excellent-portability">
+                    <a class="anchor" href="#excellent-portability" tabindex="-1">
+                        <span class="icon-link icon"></span>
+                    </a>
+                    Excellent portability
+                </h3>
                     <p>
                         Storage and/or transmission of encrypted data can pose problems of its own.
                         Usually, the ciphertext produced by an encryption algorithm contains data that cannot be represented as a 'normal' string of text.
@@ -98,7 +123,12 @@
                         <em>Lockbox</em> uses a <a href="http://tools.ietf.org/html/rfc4648#section-5">variant of Base64</a> designed specifically to address these issues.
                         It's almost impossible to accidentally corrupt the data produced by <em>Lockbox</em>.
                     </p>
-                <h3 id="public-key-flexibility">Public-key flexibility</h3>
+                <h3 id="public-key-flexibility">
+                    <a class="anchor" href="#public-key-flexibility" tabindex="-1">
+                        <span class="icon-link icon"></span>
+                    </a>
+                    Public-key flexibility
+                </h3>
                     <p>
                         <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">Public-key cryptography</a> allows for more flexible usage than <a href="http://en.wikipedia.org/wiki/Symmetric-key_algorithm">symmetric cryptography</a>.
                         Encryption requires only the <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">public key</a>, but decryption requires access to the <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">private key</a>.
@@ -108,13 +138,23 @@
                     <p>
                         <em>Lockbox</em> implements a public-key encryption system, allowing the developer to harness these features if they are required.
                     </p>
-                <h3 id="standard-key-format-support">Standard key format support</h3>
+                <h3 id="standard-key-format-support">
+                    <a class="anchor" href="#standard-key-format-support" tabindex="-1">
+                        <span class="icon-link icon"></span>
+                    </a>
+                    Standard key format support
+                </h3>
                     <p>
                         Different platforms have differing levels of support for certain key formats.
                         For example, <a hre="http://www.java.com/">Java</a> has no built-in support for the default <a href="http://en.wikipedia.org/wiki/Privacy_Enhanced_Mail">PEM</a> format keys produced by <a href="http://www.openssl.org/">OpenSSL</a>.
                         <em>Lockbox</em> fills in the gaps in support, and uses the same key format across all platforms, which allows for extremely simple key management.
                     </p>
-            <h2 id="design-goals-for-lockbox">Design goals for <em>Lockbox</em></h2>
+            <h2 id="design-goals-for-lockbox">
+                <a class="anchor" href="#design-goals-for-lockbox" tabindex="-1">
+                    <span class="icon-link icon"></span>
+                </a>
+                Design goals for <em>Lockbox</em>
+            </h2>
                 <ul>
                     <li>To utilize extremely strong encryption.</li>
                     <li>To use existing, well-vetted, open standards where possible.</li>
@@ -131,8 +171,18 @@
                     <li>To make integration as simple as possible across many languages and platforms.</li>
                     <li>To eliminate the need for configuration.</li>
                 </ul>
-            <h2 id="how-does-lockbox-actually-work">How does <em>Lockbox</em> actually work?</h2>
-                <h3 id="lockbox-with-keys"><em>Lockbox</em> with keys</h3>
+            <h2 id="how-does-lockbox-actually-work">
+                <a class="anchor" href="#how-does-lockbox-actually-work" tabindex="-1">
+                    <span class="icon-link icon"></span>
+                </a>
+                How does <em>Lockbox</em> actually work?
+            </h2>
+                <h3 id="lockbox-with-keys">
+                    <a class="anchor" href="#lockbox-with-keys" tabindex="-1">
+                        <span class="icon-link icon"></span>
+                    </a>
+                    <em>Lockbox</em> with keys
+                </h3>
                     <p>
                         <em>Lockbox</em> uses <a href="http://www.openssl.org/">OpenSSL</a> with <a href="http://en.wikipedia.org/wiki/Privacy_Enhanced_Mail">PEM</a> formatted keys, and is similar in operation to the PHP functions <a href="http://php.net/openssl_seal">openssl_seal()</a> and <a href="http://php.net/openssl_open">openssl_open()</a>.
                     </p>
@@ -140,7 +190,12 @@
                         Where <em>Lockbox</em> differs, is in its use of <a href="http://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES-256</a> instead of <a href="http://en.wikipedia.org/wiki/RC4">RC4</a> as the secondary encryption algorithm.
                         In addition, <em>Lockbox</em> includes data verification steps that allow unsuccessful decryption to be detected.
                     </p>
-                    <h4 id="encryption-process">Encryption process</h4>
+                    <h4 id="encryption-process">
+                        <a class="anchor" href="#encryption-process" tabindex="-1">
+                            <span class="icon-link icon"></span>
+                        </a>
+                        Encryption process
+                    </h4>
                         <ol>
                             <li>Some data and an <a href="http://en.wikipedia.org/wiki/RSA_(algorithm)">RSA</a> <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">public key</a> are passed to <em>Lockbox</em>.</li>
                             <li>A random 256-bit key and 128-bit <a href="http://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a> (IV) are generated from a <a href="http://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator">cryptographically secure source</a>.</li>
@@ -151,7 +206,12 @@
                             <li>This concatenation of encrypted data is then encoded using <a href="http://tools.ietf.org/html/rfc4648#section-5">Base64 with a URI and filename safe alphabet</a>.</li>
                             <li>This encoded data is returned as the final ciphertext.</li>
                         </ol>
-                    <h4 id="decryption-process">Decryption process</h4>
+                    <h4 id="decryption-process">
+                        <a class="anchor" href="#decryption-process" tabindex="-1">
+                            <span class="icon-link icon"></span>
+                        </a>
+                        Decryption process
+                    </h4>
                         <ol>
                             <li>Some ciphertext and an <a href="http://en.wikipedia.org/wiki/RSA_(algorithm)">RSA</a> <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">private key</a> are passed to <em>Lockbox</em>.</li>
                             <li>The ciphertext is decoded using <a href="http://tools.ietf.org/html/rfc4648#section-5">Base64 with a URI and filename safe alphabet</a>.</li>
@@ -165,11 +225,21 @@
                             <li>The unpadded data before this point is considered the final data.</li>
                             <li>If the verification hash matches the <a href="http://tools.ietf.org/html/rfc3174">SHA-1</a> hash of the final data, the final data is returned, otherwise decryption has failed.</li>
                         </ol>
-            <h2 id="reference-keys">Reference keys</h2>
+            <h2 id="reference-keys">
+                <a class="anchor" href="#reference-keys" tabindex="-1">
+                    <span class="icon-link icon"></span>
+                </a>
+                Reference keys
+            </h2>
                 <p>
                     All test vectors use the following keys:
                 </p>
-                <h3 id="2048-bit-key">2048-bit key</h3>
+                <h3 id="2048-bit-key">
+                    <a class="anchor" href="#2048-bit-key" tabindex="-1">
+                        <span class="icon-link icon"></span>
+                    </a>
+                    2048-bit key
+                </h3>
                     <pre>-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAy8jsljdxzsgvboCytmlH3Q03v30fPTNfMqmz2Yn0GdtkqQH0
 1+H9y5bWWCQyeGOATvIPrELGeB9nRlQeaTb5VjCl1V9PYeM6Q30PK6411fJexjYA
@@ -197,7 +267,12 @@ W3qWSwKBgQDZo0uMMWevRBriPT6OCdEYwnOZOMvh6LdXG2wyC2wYMY+8XOMzDrZP
 zD3i4wQYCfJg7pyhVtctBz2NQ8J878xm2EXzUpGaIxjLIXb1UVgw4XXcM7LkjFaa
 J1iMrMTLGSX89+gW3Bg8hxS7klxZf7ZlVSzLpA2jkK3k5vdgWGVhtA==
 -----END RSA PRIVATE KEY-----</pre>
-                <h3 id="4096-bit-key">4096-bit key</h3>
+                <h3 id="4096-bit-key">
+                    <a class="anchor" href="#4096-bit-key" tabindex="-1">
+                        <span class="icon-link icon"></span>
+                    </a>
+                    4096-bit key
+                </h3>
                     <pre>-----BEGIN RSA PRIVATE KEY-----
 MIIJKgIBAAKCAgEA9DS1xodHyQg8F0Z3QKaHSdK0dq85y8fnfnNSvv9Xd55IFJNI
 HO28kKWClOLTwY4Cg0yCmIpXvzwSVCdMS2DzT7GmBXw003/nrVAXpGLTI6ul9Brm
@@ -250,7 +325,12 @@ JrjZyEjYsaruTwz9Q1hh1DAkI7ezCkFcR0kvW69zpNaSybpK+1Uba0HZXkL+aqXv
 ETS8g8nIPIMLc654F4XrUhm1syW4oO63tvTmHdPBKM/e1H/bMoYd6r7fUQ2WRg==
 -----END RSA PRIVATE KEY-----
 </pre>
-            <h2 id="test-vectors">Test vectors</h2>
+            <h2 id="test-vectors">
+                <a class="anchor" href="#test-vectors" tabindex="-1">
+                    <span class="icon-link icon"></span>
+                </a>
+                Test vectors
+            </h2>
                 <p>
                     All test vector values below are expressed as <a href="http://en.wikipedia.org/wiki/ASCII">US-ASCII</a> encoded strings, except the key names which are references to the relevant test key.
                     Newlines are added only for readability, and do not make up part of the value.
